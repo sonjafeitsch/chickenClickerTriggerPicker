@@ -6,7 +6,7 @@ block content
             h1
                 i.fa.fa-snowflake-o(aria-hidden="true")  #{title}
                     i.fa.fa-tree(aria-hidden="true")
-            p Hello CCTB! Welcome to #{title}
+            p Hello Barcampler! Welcome to #{title}
             p
                 form(method="post" action="/insertUser")
                     div.row
@@ -16,16 +16,5 @@ block content
                                 input(type="text", class="form-control", id="username",name="username",placeholder="Enter your name",required)
                     div.row
                         div.col-lg-6
-                            div.form-group
-                                label E-Mail
-                                input(type="email", class="form-control", id="email",name="email",placeholder="Enter your email address",required)
-                    div.row
-                        div.col-lg-6
                             input(type="submit", value="Register")
-
-            ul
-            each user in data.user_list
-                li= user.username
-            else
-                li sorry, no users yet!
 

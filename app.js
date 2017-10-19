@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
-var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 
@@ -44,13 +43,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-var mongoDB = 'mongodb://127.0.0.1/secretSanta';
-mongoose.connect(mongoDB, {
-    useMongoClient: true
-});
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 module.exports = app;
