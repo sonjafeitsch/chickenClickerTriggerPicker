@@ -1,1 +1,1 @@
-# secretSanta
+# secretSanta-Barcamp2017
