@@ -7,14 +7,9 @@ block content
                 i.fa.fa-snowflake-o(aria-hidden="true")  #{title}
                     i.fa.fa-tree(aria-hidden="true")
             p Hello #{name}! Welcome to #{title}
-            p
-                form(method="post" action="/insertUser")
-                    div.row
-                        div.col-lg-6
-                            div.form-group
-                                label Name
-                                input(type="text", class="form-control", id="username",name="username",placeholder="Enter your name",required)
-                    div.row
-                        div.col-lg-6
-                            input(type="submit", value="Register")
+            div(id='videoFrame')
+                video(controls muted, width='320', height='240', autoplay='', id='chickenVideo')
+                    source(src='/video/huehner.mp4', type='video/mp4')
+            div(id='clickBox', style='height: 300px; width: 100px; background-color: #e0e0e0; border: 5px; border-color: #000000;', onclick='clickEvent();') Click
+
 
