@@ -4,12 +4,13 @@ block content
     div.container
         div.jumbotron
             h1
-                i.fa.fa-snowflake-o(aria-hidden="true")  #{title}
-                    i.fa.fa-tree(aria-hidden="true")
+                i.fa.fa-youtube-play(aria-hidden="true")  #{title}
             p Hello #{name}! Welcome to #{title}
-            div(id='videoFrame')
-                video(controls muted, width='320', height='240', autoplay='', id='chickenVideo')
-                    source(src='/video/huehner.mp4', type='video/mp4')
-            div(id='clickBox', style='height: 300px; width: 100px; background-color: #e0e0e0; border: 5px; border-color: #000000;', onclick='clickEvent();') Click
+            div.row
+                div.col-lg-6(id='videoFrame')
+                    video(controls muted, width='320', height='240', id='chickenVideo')
+                        source(src='/video/huehner.mp4', type='video/mp4')
+                div.col-lg-6.click-box(id='clickBox', onclick='clickEvent();')
+                    div.click-text(align="center") Click
 
 
