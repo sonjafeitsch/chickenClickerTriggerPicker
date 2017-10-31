@@ -20,3 +20,9 @@ function  clickEvent() {
     console.log(Math.round(time));
 }
 
+$(document).ready(function(){
+    var vid = document.getElementById('chickenVideo');
+    vid.onplay = function() {
+        alert("The video has started to play");
+    };
+});
