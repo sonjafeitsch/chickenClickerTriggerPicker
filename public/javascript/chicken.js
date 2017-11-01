@@ -23,6 +23,13 @@ function  clickEvent() {
 $(document).ready(function(){
     var vid = document.getElementById('chickenVideo');
     vid.onplay = function() {
-        alert("The video has started to play");
+        var counter = 0;
+        setInterval(function () {
+            ++counter;
+            console.log("counter time: "+counter+"; video time: "+Math.round(document.getElementById('chickenVideo').currentTime));
+        }, 1000);
+    };
+    vid.onpause = function() {
+        alert("The video has been paused");
     };
 });
