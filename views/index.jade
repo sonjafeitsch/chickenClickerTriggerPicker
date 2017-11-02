@@ -8,20 +8,28 @@ block content
             p Hello #{name}! Welcome to #{title}
 
             p
-                div.row
-                    div.col-lg-6
-                        label Select your video
-                        div.file.btn.btn-lg
-                            input(type="file" name="file")
+                form(method="post" action="/upload")
+                    div.row
+                        div.col-lg-6
+                            label Select your video
+                            div.file.btn.btn-lg
+                                input(type="file" name="file")
+                        div.col-lg-6
+                            label Recent uploads
 
-                form(method="post" action="/insertUser")
+                    div.row
+                        div.col-lg-6
+                            input(type="submit" value="Upload" style="margin-left:15px;margin-bottom: 20px;")
+
+                form(method="post" action="/setTimestamps")
                     div.row
                         div.col-lg-6
                             div.form-group
                                 label Set time stamps
-                                input(type="text", class="form-control", id="timestamps",name="timestamps",placeholder="time stamps e.g. 0:01, 0:54, 2:17, ...",required)
+                                input(type="text", class="form-control", id="timestamps",name="timestamps",placeholder="time stamps e.g. 0:01, 0:54, 2:17, ...",required, style="margin-left:15px;")
                     div.row
                         div.col-lg-6
+                            input(type="submit" value="Apply" style="margin-left:15px;margin-bottom: 20px;")
 
             div.row
                 div.col-lg-6(id='videoFrame')
