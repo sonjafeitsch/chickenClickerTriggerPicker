@@ -9,3 +9,7 @@ exports.index = function(req, res) {
 exports.upload_file_post = function(req, res) {
     res.send('file upload');
 };
+
+exports.set_timestamps_post = function(req, res) {
+    res.send('apply timestamps');
+};
