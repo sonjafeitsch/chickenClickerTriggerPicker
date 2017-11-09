@@ -8,18 +8,15 @@ block content
             p Hello #{name}! Welcome to #{title}
 
             p
-                form(method="post" action="/upload")
+                form(method="post" action="/upload" enctype="multipart/form-data")
                     div.row
                         div.col-lg-6
                             label Select your video
                             div.file.btn.btn-lg
                                 input(type="file" name="file")
-                        div.col-lg-6
-                            label Recent uploads
-
-                    div.row
-                        div.col-lg-6
-                            input(type="submit" value="Upload" style="margin-left:15px;margin-bottom: 20px;")
+                            label Upload
+                            div.file.btn.btn-lg
+                                input(type="submit" name="upload")
 
                 form(method="post" action="/setTimestamps")
                     div.row
