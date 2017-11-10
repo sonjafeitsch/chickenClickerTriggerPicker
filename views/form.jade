@@ -1,0 +1,31 @@
+extends index
+
+block form
+    p
+        form(method="post" action="/upload" enctype="multipart/form-data")
+            div.row
+                div.col-lg-6
+                    label Select your video
+                    div.file.btn.btn-lg
+                        input(type="file" name="file")
+                    label Upload
+                    div.file.btn.btn-lg
+                        input(type="submit" name="upload")
+
+        form(method="post" action="/setTimestamps")
+            div.row
+                div.col-lg-6
+                    div.form-group
+                        label Set time stamps
+                        input(type="text", class="form-control", id="timestamps",name="timestamps",placeholder="time stamps e.g. 0:01, 0:54, 2:17, ...",required, style="margin-left:15px;")
+            div.row
+                div.col-lg-6
+                    input(type="submit" value="Apply" style="margin-left:15px;margin-bottom: 20px;")
+
+    div.row
+        div.col-lg-6(id='videoFrame')
+            video.media.video(controls muted, width='320', height='240', id='chickenVideo')
+                source(src='/video/huehner.mp4', type='video/mp4')
+        div.col-lg-6.click-box(id='clickBox', onclick='clickEvent();')
+            div.click-text(align="center") Click area
+
