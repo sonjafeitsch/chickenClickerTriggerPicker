@@ -31,7 +31,7 @@ function  clickEvent() {
     }, 100);
 
     var time = $('#chickenVideo').get(0).currentTime;
-    var correctTimes = [5, 17, 32, 80];
+    var correctTimes = video.getTimestamps();
 
     for(var i=0;i<correctTimes.length;i++){
         if(Math.round(time)==correctTimes[i]){
@@ -40,7 +40,6 @@ function  clickEvent() {
         }
     }
     $('#clickBox').css('backgroundColor', '#ff0000');
-    console.log(Math.round(time));
 }
 
 $(document).ready(function(){
@@ -56,4 +55,10 @@ $(document).ready(function(){
     vid.onpause = function() {
         alert("The video has been paused");
     };
+
+    $('#setTimestamps').on('click', function(){
+        var thisTimestamps = $('#timestamps').val().split(', ');
+        video.setTimestamps(thisTimestamps);
+    })
 });
+
