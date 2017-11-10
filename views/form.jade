@@ -12,15 +12,14 @@ block form
                     div.file.btn.btn-lg
                         input(type="submit" name="upload")
 
-        form(method="post" action="/setTimestamps")
-            div.row
-                div.col-lg-6
-                    div.form-group
-                        label Set time stamps
-                        input(type="text", class="form-control", id="timestamps",name="timestamps",placeholder="time stamps e.g. 0:01, 0:54, 2:17, ...",required, style="margin-left:15px;")
-            div.row
-                div.col-lg-6
-                    input(type="submit" value="Apply" style="margin-left:15px;margin-bottom: 20px;")
+        div.row
+            div.col-lg-6
+                div.form-group
+                    label Set time stamps
+                    input(type="text", class="form-control", id="timestamps",placeholder="time stamps e.g. 1, 54, 217, ...",style="margin-left:15px;")
+        div.row
+            div.col-lg-6
+                input(type="button" value="Apply" id="setTimestamps" style="margin-left:15px;margin-bottom: 20px;")
 
     div.row
         div.col-lg-6(id='videoFrame')
