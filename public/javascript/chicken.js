@@ -2,6 +2,29 @@
  * Created by sonja on 10/26/17.
  */
 
+function Video(){
+    this.timestamps = [];
+    this.range = '';
+}
+
+Video.prototype.getTimestamps = function(){
+    return this.timestamps;
+};
+
+Video.prototype.setTimestamps = function(timestamps) {
+    this.timestamps = timestamps;
+};
+
+Video.prototype.getRange = function(){
+    return this.range;
+};
+
+Video.prototype.setRange = function(range) {
+    this.range = range;
+};
+
+var video = new Video();
+
 function  clickEvent() {
     setTimeout(function(){
         $('#clickBox').css('backgroundColor', '#e0e0e0');
