@@ -3,7 +3,7 @@
  */
 
 exports.index = function(req, res) {
-    res.render('index', { title: 'ChickenClickerTriggerPicker ', name: 'Chickens'});
+    res.render('form', { title: 'ChickenClickerTriggerPicker ', name: 'Chickens'});
 };
 
 exports.upload_file_post = function(req, res) {
