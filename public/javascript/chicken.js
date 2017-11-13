@@ -5,6 +5,8 @@
 function Video(){
     this.timestamps = [];
     this.range = '';
+    this.clicked = [];
+    this.result = [];
 }
 
 Video.prototype.getTimestamps = function(){
@@ -15,12 +17,16 @@ Video.prototype.setTimestamps = function(timestamps) {
     this.timestamps = timestamps;
 };
 
-Video.prototype.getRange = function(){
-    return this.range;
+Video.prototype.getClicked = function(){
+    return this.clicked;
 };
 
-Video.prototype.setRange = function(range) {
-    this.range = range;
+Video.prototype.getResult = function(){
+    return this.result;
+};
+
+Video.prototype.setResult = function(result) {
+    this.result = result;
 };
 
 var video = new Video();
