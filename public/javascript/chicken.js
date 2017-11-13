@@ -32,11 +32,14 @@ Video.prototype.setResult = function(result) {
 var video = new Video();
 
 function  clickEvent() {
+
     setTimeout(function(){
         $('#clickBox').css('backgroundColor', '#e0e0e0');
     }, 100);
 
     var time = $('#chickenVideo').get(0).currentTime;
+    var clicked = video.getClicked();
+    clicked.push(Math.round(time));
     var correctTimes = video.getTimestamps();
 
     for(var i=0;i<correctTimes.length;i++){
