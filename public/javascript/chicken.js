@@ -67,7 +67,39 @@ $(document).ready(function(){
 
     $('#setTimestamps').on('click', function(){
         var thisTimestamps = $('#timestamps').val().split(', ');
-        video.setTimestamps(thisTimestamps);
-    })
+        var newTimestamps = [];
+        $.each(thisTimestamps, function(key, value){
+            newTimestamps.push(parseInt(thisTimestamps[key]));
+        });
+        console.log(newTimestamps);
+        video.setTimestamps(newTimestamps);
+    });
+
+    $('#getResults').on('click', function(){
+        var result = [];
+        var correctTimes = video.getTimestamps();
+        $.each(video.getClicked(), function(key, value){
+            console.log($.inArray(value, correctTimes));
+            if($.inArray(value, correctTimes) == -1){
+                result.push(0);
+            } else {
+                result.push(1);
+            }
+        });
+        video.setResult(result);
+
+        var correctClicked = 0;
+        var wrongClicked = 0;
+
+        $.each(video.getResult(), function(key, value){
+            if(value == 0){
+                wrongClicked++;
+            } else {
+                correctClicked++;
+            }
+        });
+        console.log('Richtig: '+correctClicked+', Falsch: '+wrongClicked);
+        $('#result').append('Richtig: '+correctClicked+', Falsch: '+wrongClicked);
+    });
 });
 
