@@ -21,8 +21,28 @@ Video.prototype.getClicked = function(){
     return this.clicked;
 };
 
+Video.prototype.setClicked = function(clicked){
+    this.clicked = clicked;
+};
+
 Video.prototype.getResult = function(){
     return this.result;
+};
+
+Video.prototype.getCorrectClicked = function(){
+    return this.correctClicked;
+};
+
+Video.prototype.setCorrectClicked = function(value) {
+    this.correctClicked = value;
+};
+
+Video.prototype.getWrongClicked = function(){
+    return this.wrongClicked;
+};
+
+Video.prototype.setWrongClicked = function(value) {
+    this.wrongClicked = value;
 };
 
 Video.prototype.setResult = function(result) {
@@ -31,7 +51,7 @@ Video.prototype.setResult = function(result) {
 
 var video = new Video();
 
-function  clickEvent() {
+function clickEvent() {
 
     setTimeout(function(){
         $('#clickBox').css('backgroundColor', '#e0e0e0');
