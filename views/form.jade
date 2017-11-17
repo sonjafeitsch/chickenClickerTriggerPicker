@@ -24,7 +24,7 @@ block form
     div.row
         div.col-lg-6(id='videoFrame')
             video.media.video(controls muted, width='320', height='240', id='chickenVideo')
-                source(src='/video/huehner.mp4', type='video/mp4')
+                source(src= pathToVideo, type='video/mp4')
         div.col-lg-6.click-box(id='clickBox', onclick='clickEvent();')
             div.click-text(align="center") Click area
 

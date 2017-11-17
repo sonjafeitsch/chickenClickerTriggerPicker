@@ -12,6 +12,6 @@ exports.upload = function(req, res) {
     file.mv(path, function(err) {
         if (err)
             return res.status(500).send(err);
-        res.render('upload', {title: 'ChickenClickerTriggerPicker ', name: 'Chickens', message: 'Successful upload!', pathToVideo: file.name});
+        res.render('form', {title: 'ChickenClickerTriggerPicker ', name: 'Chickens', pathToVideo: file.name});
     });
 };
