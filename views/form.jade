@@ -1,6 +1,9 @@
 extends index
 
 block form
+    if message
+        div.alert.alert-success.alert-dismissable.fade-in #{message}
+            a(class="close", href="#", data-dismiss="alert", aria-label="close") &times
     p
         form(method="post" action="/upload" enctype="multipart/form-data")
             div.row
