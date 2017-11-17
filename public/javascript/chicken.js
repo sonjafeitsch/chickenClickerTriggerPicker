@@ -4,9 +4,10 @@
 
 function Video(){
     this.timestamps = [];
-    this.range = '';
     this.clicked = [];
     this.result = [];
+    this.correctClicked = 0;
+    this.wrongClicked = 0;
 }
 
 Video.prototype.getTimestamps = function(){
@@ -91,15 +92,17 @@ $(document).ready(function(){
         $.each(thisTimestamps, function(key, value){
             newTimestamps.push(parseInt(thisTimestamps[key]));
         });
-        console.log(newTimestamps);
         video.setTimestamps(newTimestamps);
     });
 
     $('#getResults').on('click', function(){
+        console.log(video.getCorrectClicked());
+        console.log(video.getWrongClicked());
+        var correct = video.getCorrectClicked();
+        var wrong = video.getWrongClicked();
         var result = [];
         var correctTimes = video.getTimestamps();
         $.each(video.getClicked(), function(key, value){
-            console.log($.inArray(value, correctTimes));
             if($.inArray(value, correctTimes) == -1){
                 result.push(0);
             } else {
@@ -108,18 +111,20 @@ $(document).ready(function(){
         });
         video.setResult(result);
 
-        var correctClicked = 0;
-        var wrongClicked = 0;
-
         $.each(video.getResult(), function(key, value){
             if(value == 0){
-                wrongClicked++;
+                wrong++;
             } else {
-                correctClicked++;
+                correct++;
             }
         });
-        console.log('Richtig: '+correctClicked+', Falsch: '+wrongClicked);
-        $('#result').append('Richtig: '+correctClicked+', Falsch: '+wrongClicked);
+        $('#result').append('Richtig: '+correct+', Falsch: '+wrong);
     });
+
+    $('#clearResults').on('click', function(){
+        video.setCorrectClicked(0);
+        video.setWrongClicked(0);
+        video.setClicked([]);
+    })
 });
 
