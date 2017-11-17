@@ -8,6 +8,7 @@ function Video(){
     this.result = [];
     this.correctClicked = 0;
     this.wrongClicked = 0;
+    this.missedClicks = 0;
 }
 
 Video.prototype.getTimestamps = function(){
@@ -50,6 +51,14 @@ Video.prototype.setResult = function(result) {
     this.result = result;
 };
 
+Video.prototype.setMissedClicks = function(value) {
+    this.missedClicks = value;
+};
+
+Video.prototype.getMissedClicks = function(){
+    return this.missedClicks;
+};
+
 var video = new Video();
 
 function clickEvent() {
@@ -72,6 +81,19 @@ function clickEvent() {
     $('#clickBox').css('backgroundColor', '#ff0000');
 }
 
+function missedResults(clicked, correctTimestamps){
+    var missedClicks = video.getMissedClicks();
+    clicked = _.uniqBy(clicked, function(e){
+        return e;
+    });
+    $.each(correctTimestamps, function(key, value){
+        if($.inArray(value, clicked) == -1){
+            missedClicks++;
+        }
+    });
+    video.setMissedClicks(missedClicks);
+}
+
 $(document).ready(function(){
     var vid = $('#chickenVideo');
     var time = Math.round(vid.currentTime);
@@ -79,7 +101,6 @@ $(document).ready(function(){
         var counter = 0;
         setInterval(function () {
             ++counter;
-            console.log("counter time: "+counter+"; video time: "+time);
         }, 1000);
     };
     vid.onpause = function() {
@@ -96,13 +117,12 @@ $(document).ready(function(){
     });
 
     $('#getResults').on('click', function(){
-        console.log(video.getCorrectClicked());
-        console.log(video.getWrongClicked());
         var correct = video.getCorrectClicked();
         var wrong = video.getWrongClicked();
         var result = [];
+        var clicked = video.getClicked();
         var correctTimes = video.getTimestamps();
-        $.each(video.getClicked(), function(key, value){
+        $.each(clicked, function(key, value){
             if($.inArray(value, correctTimes) == -1){
                 result.push(0);
             } else {
@@ -118,7 +138,8 @@ $(document).ready(function(){
                 correct++;
             }
         });
-        $('#result').append('Richtig: '+correct+', Falsch: '+wrong);
+        missedResults(clicked, correctTimes);
+        $('#result').append('Richtig: '+correct+', Falsch: '+wrong+', verpasste Clicks: '+video.getMissedClicks());
     });
 
     $('#clearResults').on('click', function(){
