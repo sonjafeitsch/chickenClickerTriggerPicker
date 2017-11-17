@@ -3,5 +3,5 @@
  */
 
 exports.index = function(req, res) {
-    res.render('form', { title: 'ChickenClickerTriggerPicker ', name: 'Chickens'});
+    res.render('form', { title: 'ChickenClickerTriggerPicker ', name: 'Chickens', pathToVideo: 'video/huehner.mp4'});
 };
