@@ -145,7 +145,9 @@ $(document).ready(function(){
     $('#clearResults').on('click', function(){
         video.setCorrectClicked(0);
         video.setWrongClicked(0);
+        video.setMissedClicks(0);
         video.setClicked([]);
+        video.setTimestamps([]);
     })
 });
 
