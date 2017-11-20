@@ -139,7 +139,7 @@ $(document).ready(function(){
             }
         });
         missedResults(clicked, correctTimes);
-        $('#result').append('Richtig: '+correct+', Falsch: '+wrong+', verpasste Clicks: '+video.getMissedClicks());
+        $('#result').html("<div>Richtig: "+correct+", Falsch: "+wrong+", verpasste Clicks: "+video.getMissedClicks()+"</div>");
     });
 
     $('#clearResults').on('click', function(){
